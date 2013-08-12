@@ -21,7 +21,6 @@ end
 
 def user_authorization#will add method for getting theirs later
 	authorization = {"X-Mashape-Authorization" => "kK6yOtFp1BD7izLGsUfy4HwPjWXHR2lj"}
-	return authorization
 end 
 
 
@@ -54,9 +53,24 @@ def get_words
 end
 
 
-def get_word_inputs(:height, :textblock, :width, &:config)
+def get_inputs(:height, :textblock, :width, &:config)
 	inputs = {:height => "200", :texblock => "#{get_words}", :width => "200", :config =>"."}
 end
+
+
+
+def word_cloud_generator()
+
+class WordCloud
+
+attr_accessor 
+
+
+
+
+
+
+
 
 
 #def words(add_word)
