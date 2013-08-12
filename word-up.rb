@@ -7,10 +7,6 @@ require 'JSON'
 
 
 
-def generate_word_cloudp()
-	return UniRest::post("https://gatheringpoint-word-cloud-maker.p.mashape.com/index.php",)
-
-
 
 def post_address(mashape)
 return"#{mashape}"
@@ -26,27 +22,72 @@ def authorization(name,token)
 authorization = {"name" => "token"}
 end 
 
-def user_authorize_input
+def user_input(user,token)
+
 puts "what is your user?"
-user = gets.chomp.to_s
+user = gets.chomp
 puts "what is your token?"
-token = gets.chomp.to_s
-authorize_input = {"user" => "token"}
-return authorize_input
+token = gets.chomp
+return user,token
 end
 
 
-class User
-User = Hash.new	
-	attr_reader(:token,:config)
 
-def initialize(token,info)
-	@token = authorization
-	@config= user_input
+
+def get_user_word
+	puts "what word would you like to add?"
+	word = gets.chomp.to_s
+	word << words
+end 
+
+
+
+	puts"wanna add a word?"
+	unless gets.chomp != 'y'
+		get_user_word
+	else 
+	end
+
+	answer = gets.chomp
+	if answer.downcase == 'y' || 'yes'
+		puts "well give it to me"
+	new_word = gets.chomp
+	words << new_word
+
+else 
+	end 
+	return words
+end 
+
+pry .binding 
+
+
+
+class User
+
+	attr_reader(:user_authorize_input
+
+def initialize(user_authorize_input, get_user_words)
+@user_authorize_input = user_authorize_input
+@get_user_words = get_user_words
+end 
+
+
+	abort "Usage:  #{$PROGRAM_NAME} ARGS_GO_HERE"
+ende\\
   end
 
 
 end 
+
+
+class Words
+	def add_word
+	end
+	#def find_word
+	#end
+	def see_words
+	end
 
 
 
@@ -54,6 +95,8 @@ end
 UniRest::post("#{post_address(mashape)}","#{User.token},#{User.config}")
 
 
+def generate_word_cloudp()
+	return UniRest::post("https://gatheringpoint-word-cloud-maker.p.mashape.com/index.php",)
 
 
 
