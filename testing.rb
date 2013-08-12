@@ -1,15 +1,40 @@
 require 'pry'
-require 'unirest'
-require 'JSON'
+# require 'unirest'
+# require 'JSON'
 
 
-def authorization(name,token)
-authorization = {"name" => "token"}
+# def authorization
+# authorization = {"name" => "token"}
+# end 
+# puts authorization
+# #=> {"name"=>"token"}
+
+
+
+words =[]
+# puts "Would you like to add word?"
+# answer = gets.chomp
+loop do 
+	puts "would you like to add a word?"
+	answer = gets.chomp
+	if answer.downcase != "yes"
+	break
+else 
+puts "Ok, give it to me"
+word = gets.chomp.to_s
+words << word
 end 
-puts authorization
+end 
+
+words.class?
+
+# puts words
+# puts words
 
 
-
+# def add_words(word)
+# puts "what word would you like to add?"
+# word = gets.ch
 
 
 
