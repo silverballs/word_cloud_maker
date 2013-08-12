@@ -14,10 +14,61 @@ def api_address(mashape)
 return"#{mashape}"
 end
 
-def user_cloud_inputs(height,textblock, width, config)
-	user_inputs = {"height: #{height},textblock: #{textblock}, width: #{width},config: #{config}"}
+
+#I thin this can be refactored with some other user input things to make it look better.  Come back after you finish the other methods
+def get_user_words
+words =[]
+ puts "Would you like to add word?"
+ answer = gets.chomp
+loop do 
+	puts "would you like to add a word?"
+	answer = gets.chomp
+	if answer.downcase != "yes"
+	break
+else 
+puts "Ok, give it to me"
+word = gets.chomp.to_s
+words << word
+end 
+end 
+#going to have to itterate of the array most probably. 
+
+
+
+
+
+def get_user_height(height)
+puts "what height?"   #come back here later to set parameters and data types
+height = gets.chomp
+return "#{height}"
+end
+
+def get_user_width(width)
+puts "what width?"   #come back here later to set parameters and data types
+height = gets.chomp
+return "#{width}"
+end
+
+def user_cloud_inputs(height,textblock, width, &config)
+#not sure if these need to have arguments
+user_inputs["height"] = get_user_height
+user_inputs["textblock"] = get_user_words 
+uer_inputs["textblock"] = get_user_words
+uer_inputs["config"] = ""
+
+user_inputs = 
+{"height: #{height},textblock: #{textblock}, width: #{width},config: #{config}"}
 	return user_inputs
 end
+
+
+
+
+
+
+
+
+
 
 authorization_hash = {"X-Mashape-Authorization" => "kK6yOtFp1BD7izLGsUfy4HwPjWXHR2lj"}
 
@@ -26,10 +77,10 @@ authorization_hash = {"X-Mashape-Authorization" => "kK6yOtFp1BD7izLGsUfy4HwPjWXH
 
 class WordCloud
 	# What does everyone need to to have access to?
-	attr_accessor :request, 
+	attr_accessor :request
 	attr_reader :authorization
 
-	def initialize(request,authorization_hash,input)
+	def initialize(request,authorization_hash,&input)
 
 		@request = request
 		#will change this eventually to have them get their own:  This key is open and for testing so do not worry.
@@ -41,8 +92,9 @@ class WordCloud
 end
 
 
+class User
 
-
+attr_accessor :
 
 
 
