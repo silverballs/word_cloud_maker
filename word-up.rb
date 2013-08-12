@@ -4,13 +4,54 @@ require 'JSON'
 
 
 
+#come back to creating a request defintion.  
+def api_address = "https://gatheringpoint-word-cloud-maker.p.mashape.com/index.php"
 
+#this both gets and posts to the api
+request = Unirest::post("https://gatheringpoint-word-cloud-maker.p.mashape.com/index.php")
 
-
-
-def post_address(mashape)
+def api_address(mashape)
 return"#{mashape}"
 end
+
+def user_cloud_inputs(height,textblock, width, config)
+	user_inputs = {"height: #{height},textblock: #{textblock}, width: #{width},config: #{config}"}
+	return user_inputs
+end
+
+authorization_hash = {"X-Mashape-Authorization" => "kK6yOtFp1BD7izLGsUfy4HwPjWXHR2lj"}
+
+
+ #what are the endpoints we are going to connect to during our post request?
+
+class WordCloud
+	# What does everyone need to to have access to?
+	attr_accessor :request, 
+	attr_reader :authorization
+
+	def initialize(request,authorization_hash,input)
+
+		@request = request
+		#will change this eventually to have them get their own:  This key is open and for testing so do not worry.
+		@authorization_hash = authorization_hash
+		@input = user_cloud_inputs
+		#need to make this get each persons input
+	end
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #f Unirest::post
 #maybe do a key.each do value = the chomp of of question
