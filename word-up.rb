@@ -2,11 +2,15 @@ require 'pry'
 require 'UniRest'
 require 'JSON'
 
-mashape = "https://gatheringpoint-word-cloud-maker.p.mashape.com/index.php"
 
-def post_api(:gem, :post)
-return "Unirest::post"
-end
+
+
+
+
+def generate_word_cloudp()
+	return UniRest::post("https://gatheringpoint-word-cloud-maker.p.mashape.com/index.php",)
+
+
 
 def post_address(mashape)
 return"#{mashape}"
@@ -22,6 +26,15 @@ def authorization(name,token)
 authorization = {"name" => "token"}
 end 
 
+def user_authorize_input
+puts "what is your user?"
+user = gets.chomp.to_s
+puts "what is your token?"
+token = gets.chomp.to_s
+authorize_input = {"user" => "token"}
+return authorize_input
+end
+
 
 class User
 User = Hash.new	
@@ -31,14 +44,14 @@ def initialize(token,info)
 	@token = authorization
 	@config= user_input
   end
-user
+
 
 end 
 
 
 
 
-post_api("#{post_address(mashape)},#{User.token},#{User.config}")
+UniRest::post("#{post_address(mashape)}","#{User.token},#{User.config}")
 
 
 
