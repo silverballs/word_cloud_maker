@@ -36,35 +36,72 @@ def get_word_cloud(post_api, post_address, user_authorization, user_inputs)
 end 
 
 
-
-
-
-
-
-
-
-
-
 user_authorization = Hash.new
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #m = Unirest::post("https://gatheringpoint-word-cloud-maker.p.mashape.com/index
+
+
+
+
+
 def inputs(height, textblock, width,config )
+
+def get_words
+	puts "word to add?"
+	word = gets.chomp
+end
+
+
+def get_word_inputs(:height, :textblock, :width, &:config)
+	inputs = {:height => "200", :texblock => "#{get_words}", :width => "200", :config =>"."}
+end
+
+
+#def words(add_word)
+#	return words[]
+
+words = Hash.new
+words << add_word
+
+class WordConfig
+	attr_accessor :word
+
+	def initialize(word)
+		@word = Word
+	end
+
+	def add_word(word_to_add)
+
+
+
+
+class WordCloud
+	attr_accessor :height
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+WordCloud =
+
+
+
+
 
 
 
